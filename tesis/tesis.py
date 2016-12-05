@@ -22,8 +22,8 @@ def sensorFlujo():
 
 def sensorNivel():
     v = leerSensor(2)
-    li = 4.0
-    lf = 168.0
+    li = 10.16
+    lf = 426.72
     return [v, li,lf]
 
 def calculo(li):
