@@ -36,7 +36,7 @@ def leerSensor(n):
         pinsensor.setBit(12)
         
         valorsensor = pinsensor.read()
-        return valorsensor/819.0
+        return valorsensor/819.2
     except:
         print "Error en el conversor ADC"
 
@@ -60,16 +60,14 @@ if __name__ == '__main__':
 	  nivel = calculo(sensorNivel())
           if sensor==0:
               myLcd.write('Presion: %.6f'%presion)
-              time.sleep(2)
           elif sensor == 1:
               myLcd.write('Flujo: %.6f'%flujo)
-              time.sleep(2)
           else:
               myLcd.write('Nivel: %.6f'%nivel)
-              time.sleep(2)
 	  if sensor < 2:
 		sensor+=1
 	  else:
 		sensor = 0
           datos = {"presion":presion , "flujo":flujo,"nivel":nivel}
           dweepy.dweet_for("TesisTonnyAlvarado",datos)
+	  time.sleep(3)
